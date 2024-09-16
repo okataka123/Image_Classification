@@ -1,4 +1,4 @@
 batch_size: 100
 learning_rate: 0.001
 epochs: 10
-dataset: 'CIFAR10'
+dataset: 'MNIST'

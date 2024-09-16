@@ -12,8 +12,8 @@ def train(config, save_model=False):
     #optimizer = torch.optim.Adam(model.parameters(), lr=config['learning_rate'])
     optimizer = torch.optim.SGD(model.parameters(), lr=config['learning_rate'])
     criterion = torch.nn.CrossEntropyLoss()
-    train_loader = get_data_loader('MNIST', batch_size=config['batch_size'], train=True)
-    test_loader = get_data_loader('MNIST', batch_size=config['batch_size'], train=False)
+    train_loader = get_data_loader(config['dataset'], batch_size=config['batch_size'], train=True)
+    test_loader = get_data_loader(config['dataset'], batch_size=config['batch_size'], train=False)
     
     train_loss_value = []
     train_acc_value = []

@@ -3,6 +3,9 @@ import torch.nn as nn
 
 
 class SimpleCNN(nn.Module):
+    '''
+    MNIST用（グレースケール画像）
+    '''
     def __init__(self):
         super().__init__()
         self.relu = nn.ReLU()

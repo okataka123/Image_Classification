@@ -3,14 +3,15 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import seaborn as sns
 from tqdm import tqdm
-from models.cnn import SimpleCNN
+from models.cnn import SimpleCNN, SimpleCNN_2 
 from data.dataset_loader import get_data_loader
 
 
 def train(config, save_model=False):
-    model = SimpleCNN()
-    #optimizer = torch.optim.Adam(model.parameters(), lr=config['learning_rate'])
-    optimizer = torch.optim.SGD(model.parameters(), lr=config['learning_rate'])
+    #model = SimpleCNN()
+    model = SimpleCNN_2()
+    optimizer = torch.optim.Adam(model.parameters(), lr=config['learning_rate'])
+    #optimizer = torch.optim.SGD(model.parameters(), lr=config['learning_rate'])
     criterion = torch.nn.CrossEntropyLoss()
     train_loader = get_data_loader(config['dataset'], batch_size=config['batch_size'], train=True)
     test_loader = get_data_loader(config['dataset'], batch_size=config['batch_size'], train=False)
